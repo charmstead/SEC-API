@@ -56,14 +56,14 @@ const parse = (xml: string, ticker: string): Array<parsedData> => {
 
 
 
-const parseTable = (table, type: string, ticker: string):parsedData => {
+const parseTable = (table, type: string, ticker: string):any => {
 
     const transaction = type == 'derivativeTable' ? 'derivativeTransaction' : 'nonDerivativeTransaction';
     const nonDerive = table[type][transaction].filter(({ transactionCoding }) => {
         return /(p|s)/gi.test(transactionCoding.transactionCode._text)
     })
 
-    return nonDerive.reduce((acc, { transactionAmounts }) => {
+    const transformed:parsedData= nonDerive.reduce((acc, { transactionAmounts }) => {
 
         const { transactionPricePerShare, transactionShares } = transactionAmounts;
 
@@ -78,6 +78,8 @@ const parseTable = (table, type: string, ticker: string):parsedData => {
         return acc;
 
     }, { transaction, ticker, A: 0, D: 0 })
+
+    return this.findCrossOverEventForTicker(transformed);
 }
 
 
