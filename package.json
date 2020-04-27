@@ -1,0 +1,41 @@
+{
+   "name": "sec-api",
+   "version": "0.0.1",
+   "description": "Awesome project",
+   "scripts": {
+      "dev": "set debug=* && ts-node-dev --respawn --transpileOnly ./src/index.ts",
+      "build": "gulp",
+      "dev:gulp": "npm run build && nodemon --watch ./src -e 'ts' --exec \"gulp dev:build && node dist/index.js\"",
+      "start": "node ./dist/index.js",
+      "postinstall": "node ./build-scripts/heroku.js"
+   },
+   "devDependencies": {
+      "@types/node": "^8.0.29",
+      "del": "^5.1.0",
+      "gulp": "^4.0.2",
+      "gulp-mocha": "^7.0.2",
+      "gulp-sourcemaps": "^2.6.5",
+      "gulp-typescript": "^6.0.0-alpha.1",
+      "nodemon": "^2.0.2",
+      "ts-node": "3.3.0",
+      "ts-node-dev": "^1.0.0-pre.44",
+      "typescript": "^3.3.3333"
+   },
+   "dependencies": {
+      "@types/body-parser": "^1.17.1",
+      "@types/cors": "^2.8.6",
+      "@types/helmet": "0.0.45",
+      "axios": "^0.19.2",
+      "body-parser": "^1.18.1",
+      "cors": "^2.8.5",
+      "dotenv": "^8.2.0",
+      "express": "^4.15.4",
+      "helmet": "^3.21.2",
+      "html-table-to-json": "^1.0.0",
+      "isomorphic-fetch": "^2.2.1",
+      "isomorphic-unfetch": "^3.0.0",
+      "reflect-metadata": "^0.1.13",
+      "xml-js": "^1.6.11",
+      "xml2json": "^0.12.0"
+   }
+}
