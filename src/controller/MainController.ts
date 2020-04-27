@@ -13,7 +13,7 @@ export default () => {
     router.post('/filings', async (req: Request, res: Response, next: NextFunction) => {
 
         const {ticker,filedAt} =req.body;
-       const filings= await fetchFilings({ticker:'AAPL',filedAt:'2020-04-17'});
+       const filings= await fetchFilings({ticker,filedAt});
         return res.send(filings);
 
     })
