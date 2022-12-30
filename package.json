@@ -13,7 +13,7 @@
       "@types/node": "^8.0.29",
       "del": "^5.1.0",
       "gulp": "^4.0.2",
-      "gulp-mocha": "^7.0.2",
+      "gulp-mocha": "^8.0.0",
       "gulp-sourcemaps": "^2.6.5",
       "gulp-typescript": "^6.0.0-alpha.1",
       "nodemon": "^2.0.2",
